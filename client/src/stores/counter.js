@@ -28,19 +28,20 @@ export const useCounterStore = defineStore("counterstore", {
         localStorage.setItem("access_token", response.data.access_token);
         this.isLogin = true;
 
-        this.$swal({
+        Swal.fire({
+          position: "center",
           icon: "success",
-          title: `Successfully logged in`,
+          title: "Successfully logged in",
+          showConfirmButton: false,
+          timer: 1500,
         });
-
-        this.router.push("/");
+        
       } catch (err) {
         console.log(err);
-        this.$swal({
-          icon: "error",
-          title: "Error",
+        Swal.fire({
+          icon: 'error',
           text: `${err.toString()}`,
-        });
+        })
       }
     },
 
@@ -61,13 +62,16 @@ export const useCounterStore = defineStore("counterstore", {
     async handleLogout() {
       try {
         localStorage.clear();
-        this.$swal({
+        Swal.fire({
+          position: "center",
           icon: "success",
-          title: `Successfully logout`,
+          title: "You have been logged out",
+          showConfirmButton: false,
+          timer: 1500,
         });
         this.isLogin = false;
       } catch (err) {
-        throw err;
+        console.log(err);
       }
     },
   },

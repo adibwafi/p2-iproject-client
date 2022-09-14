@@ -13,6 +13,7 @@ pinia.use(({ store }) => {
     // store.router = markRaw(router);
 });
 
+
 app.use(VueSweetalert2);
 app.use(pinia);
 app.use(router);

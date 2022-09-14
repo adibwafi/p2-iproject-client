@@ -18,10 +18,7 @@ export default{
         <div class="card-body">
             <div class="journal-txt">
                 <h3 style="color: #2596be">{{items.name}}</h3>
-                <p class="card-text">Some quick example text to build on the card title and make up
-                    the
-                    bulk of the card's content.</p>
-                <p class="card-text">Rp. {{items.price}}/Day</p>
+                <p class="card-text">Rp. {{items.price}}/Hari</p>
             </div>
         </div>
     </div>
