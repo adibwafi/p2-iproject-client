@@ -9,9 +9,9 @@ export default {
     },
     methods: {
         ...mapActions(useCounterStore, ['handleLogout', 'isLoggedin']),
-        logout () {
+        logout() {
             this.handleLogout()
-            
+
             this.$router.push('/login')
         }
     },
@@ -44,6 +44,9 @@ export default {
                         </a></li>
                     <li v-if="!isLogin"><a class="nav-link scrollto">
                             <RouterLink to="/register">Register</RouterLink>
+                        </a></li>
+                    <li v-if="isLogin"><a class="nav-link scrollto">
+                            <RouterLink to="/rentitems">Rent Items</RouterLink>
                         </a></li>
                     <li v-if="isLogin"><a @click.prevent="logout" class="nav-link scrollto">Logout</a></li>
                 </ul>

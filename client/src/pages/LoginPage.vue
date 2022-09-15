@@ -36,14 +36,12 @@ export default {
         <div class="border w-75 p-5 my-5 bg-white rounded-3 shadow">
             <div class="row">
                 <div class="col-6">
-                    <img src="./assets/undraw_Online_learning_re_qw08.png" alt="login-img" width="100%" />
+                    <img src="../assets/img/4.jpg" alt="login-img" width="770" style="align-items: center; padding-right: 0%;"/>
                 </div>
-                <div class="col-6 align-self-center">
+                <div class="col-6 align-self-center" style="padding-left:25%">
                     <form @submit.prevent="loginLocal(email, password)">
                         <div class="mb-3">
-                            <img src=""
-                                alt="logo-h8" class="mb-4" width="200px" />
-                            <h5 class="mb-4">Sign in to your account</h5>
+                            <h4 class="mb-4" style="color:#2596be">Sign in to your account</h4>
                             <label for="email" class="form-label">Email address</label>
                             <input v-model="email" type="email" class="form-control" id="email" autocomplete="off" />
                         </div>

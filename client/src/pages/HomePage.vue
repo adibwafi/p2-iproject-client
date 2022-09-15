@@ -10,13 +10,15 @@ export default {
         ItemCard
     },
     computed: {
-        ...mapState(useCounterStore, ["items"])
+        ...mapState(useCounterStore, ["items", 'rentitems'])
     },
     methods: {
-        ...mapActions(useCounterStore, ["getItems"])
+        ...mapActions(useCounterStore, ["getItems", 'getRentItems'])
     },
     created() {
         this.getItems()
+        this.getRentItems()
+        
     }
 }
 </script>

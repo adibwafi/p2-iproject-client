@@ -8,6 +8,8 @@ export const useCounterStore = defineStore("counterstore", {
     return {
       isLogin: false,
       items: [],
+      currentItem: {},
+      rentitems: []
     };
   },
   actions: {
@@ -35,7 +37,7 @@ export const useCounterStore = defineStore("counterstore", {
           showConfirmButton: false,
           timer: 1500,
         });
-        
+
       } catch (err) {
         console.log(err);
         Swal.fire({
@@ -56,6 +58,64 @@ export const useCounterStore = defineStore("counterstore", {
         // console.log("++++++++++++++++++", response.data.items)
       } catch (err) {
         console.log(err);
+        Swal.fire({
+          icon: 'error',
+          text: `${err.toString()}`,
+        })
+      }
+    },
+
+    async getItemById(id) {
+      try {
+        // console.log(id, "===========")
+        const response = await axios.get(`${baseUrl}/items/${id}`, {
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        // console.log(response)
+        this.currentItem = response.data.currentItem
+        // console.log("======================");
+      } catch (err) {
+          console.log(err)
+          Swal.fire({
+            icon: 'error',
+            text: `${err.toString()}`,
+          })
+      }
+    },
+
+    async getRentItems() {
+      try {
+        const response = await axios.get(`${baseUrl}/rentitems`, {
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          }
+        })
+        this.rentitems = response.data.rentitems
+      }
+      catch (err) {
+        console.log(err)
+      }
+    },
+
+    async addRentItems(newItem) {
+      try {
+        this.rentitems.push(newItem)
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully added rent items",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+      catch (err) {
+        console.log(err)
+        Swal.fire({
+          icon: 'error',
+          text: `${err.toString()}`,
+        })
       }
     },
 
