@@ -7,7 +7,7 @@
         <div class="border w-75 p-5 my-5 bg-white rounded-3 shadow">
             <div class="row">
                 <div class="col-6">
-                    <img src="./assets/undraw_Online_learning_re_qw08.png" alt="login-img" width="100%" />
+                    <img src="" alt="login-img" width="100%" />
                 </div>
                 <div class="col-6 align-self-center">
                     <form>
